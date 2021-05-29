@@ -25,6 +25,9 @@
     "oclm-oconnell-e2e": {
       "tags": [],
       "implicitDependencies": ["oclm-oconnell"]
+    },
+    "shared-ui": {
+      "tags": []
     }
   }
 }
