@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 const useStyles = makeStyles((theme) => ({
   tertiaryAction: {
@@ -25,8 +26,20 @@ const useStyles = makeStyles((theme) => ({
 export interface LoginProps {
   content: any;
 }
+type LoginInputs = {
+  identifier: string;
+  password: string;
+};
+
 export default function LoginForm(props: LoginProps) {
   const classes = useStyles();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<LoginInputs>();
+  const onSubmit: SubmitHandler<LoginInputs> = (data) => console.log(data);
 
   const content = {
     brand: {
@@ -64,17 +77,15 @@ export default function LoginForm(props: LoginProps) {
             </Typography>
           </Box>
           <Box>
-            <form noValidate>
+            <form noValidate onSubmit={handleSubmit(onSubmit)}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
                     variant="outlined"
                     required
                     fullWidth
-                    name="email"
-                    id="email"
-                    label="Email address"
-                    autoComplete="email"
+                    label="Username or Email address"
+                    {...register('identifier', { required: true })}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -82,11 +93,9 @@ export default function LoginForm(props: LoginProps) {
                     variant="outlined"
                     required
                     fullWidth
-                    name="password"
-                    id="password"
                     label="Password"
                     type="password"
-                    autoComplete="current-password"
+                    {...register('password', { required: true })}
                   />
                 </Grid>
               </Grid>
