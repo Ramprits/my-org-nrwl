@@ -1,12 +1,13 @@
-import styles from './app.module.scss';
-
-import { Header } from '@my-org/shared-ui';
-
+import { Switch, Route } from 'react-router-dom';
+import Home from './home/home';
+import { Login, Register } from './auth';
 export function App() {
   return (
-    <div className={styles.app}>
-      <Header bucketMain={[<div>Hello</div>]} content={null} />
-    </div>
+    <Switch>
+      <Route exact path="/login" component={Login}></Route>
+      <Route exact path="/register" component={Register}></Route>
+      <Route exact path="/" component={Home}></Route>
+    </Switch>
   );
 }
 

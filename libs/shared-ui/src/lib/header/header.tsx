@@ -74,14 +74,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export function Header(props: HeaderProps) {
+  console.log(`props`, props);
   const classes = useStyles();
   const content = {
     brand: {
-      image: './assets/mui-assets/img/logo-pied-piper-white.png',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/oclm-app.appspot.com/o/logo%2Flogo-pied-piper-white.png?alt=media&token=e1592d62-061a-4cc8-9e3a-7f6cfb412350',
       width: 120,
     },
     small: {
-      image: './assets/mui-assets/img/logo-pied-piper-white-icon.png',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/oclm-app.appspot.com/o/logo%2Flogo-pied-piper-white-icon.png?alt=media&token=918c4189-d3d3-40ec-8e0b-868af49c56b3',
       width: 32,
     },
     home: 'Home',
