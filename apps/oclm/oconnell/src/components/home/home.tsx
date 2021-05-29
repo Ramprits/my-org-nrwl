@@ -64,7 +64,7 @@ export function Home(props: HomeProps) {
     'secondary-action': 'Read more',
     image:
       'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    ...props.content,
+    ...props,
   };
   return (
     <section>
